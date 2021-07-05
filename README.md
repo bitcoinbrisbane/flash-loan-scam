@@ -93,3 +93,24 @@ There are profiles such as "Marcus Canton" with no profile image commenting "Ama
 
 # Final words
 Stay safe out there!  Visit real meetups like www.bitcoinbrisbane.com.au or meetup.com/bitcoinbrisbane to get real information.
+
+```text
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+This review of https://www.youtube.com/watch?v=HynfsKoFlaw was performed by lucas@bitcoinbrisbane.com.au
+-----BEGIN PGP SIGNATURE-----
+
+iQHRBAEBCgA7FiEE9oqpBrW+YBrEnvg9xh+XXeve3GsFAmDiaqodHGx1Y2FzQGJp
+dGNvaW5icmlzYmFuZS5jb20uYXUACgkQxh+XXeve3GsFNgwAx7mB0Qqn8K/zDmzF
+DH91d84Bx005wy3EkW7YV1a7slCcp/nS+oDjOXASOoOgCPOY07eMwFMwW8FpPqdJ
+8ErhFJ/SDkVYMeANF1O5uDMddHVeQvHqvXOncQdzZRUbIB57WCobFls18WTi7o9h
+k3gvhYdfCVyyX3b5nKeDGYGxypTX//+Xuq3tYkCQppBnExbgsu4791DGZJrS3nRJ
+WNcc+O21+LUvjH+Om8By4nHt2Y80K1ujJz2RpYi1qGf6hzAKH+LFkixjAFiG4U1C
+IiO/ey2iTmb2RVYsYl5YTFlWScHqWzMtpS8+8y5/vJO0cmGZLLEAuCYB+JxXuf2/
+uvL8p+LoPCpWfMJTTvviJoffXBXwNsS9Uyva7u6sKM6NIhIaMGit7pHnaXgwt1xb
+/NUFY6e4rBdX9DPtuj5H5y4t2iCF3KyaMsvfN46w39RlWQ6SjPMZhN6ndGY+p0Lt
+Of2xoI+N1z5kKuL2MLQgzFfAG0yybKGP7aFLbjBAy1AZ8ugU
+=mPc6
+-----END PGP SIGNATURE-----
+```
