@@ -1,4 +1,4 @@
-# flash-loan-scam
+# Flash Loan Scam on YouTube
 Analysis of "flash loan attack" from YouTuber https://www.youtube.com/watch?v=HynfsKoFlaw&amp;t=105s
 
 ## Background
