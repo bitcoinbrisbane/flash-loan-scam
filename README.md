@@ -13,15 +13,14 @@ The attack code is on GhostBin, an anonymous file sharing platform not GitHub or
 ## Concern 2:  Code on IPFS
 From the GhostBin code the contract imports a contract from IPFS at QmSPEmnJEVjRbtmdcbeApHAVFVYGT4Lefrp45Ca2QK5923.  This obfiscates the code from anyone wanting to inspect what the contract does.  I have included the IPFS code in this repo to inspect. 
 
-## Conern 3:  Bad addresses
+## Conern 3:  Bad / unknown addresses
 In the IPFS file LN 128 references the contract `0x9c7770E88dd4c4F972283E97B4FeBD2991e0E05B`.  This does not exist on the Ethereum blockchain.   https://etherscan.io/address/0x9c7770E88dd4c4F972283E97B4FeBD2991e0E05B
 
 ![Screenshot from 2021-07-05 11-02-31](https://user-images.githubusercontent.com/8411406/124406453-c2e2d800-dd84-11eb-9cb3-70695158b179.png)
 ![Screenshot from 2021-07-05 10-56-40](https://user-images.githubusercontent.com/8411406/124406486-d42be480-dd84-11eb-9dd4-6c875167c8bb.png)
 
-
 # Inspecting the code
-After downloading the IPFS file QmSPEmnJEVjRbtmdcbeApHAVFVYGT4Lefrp45Ca2QK5923 there are a lot of concerns!
+After downloading the IPFS file [QmSPEmnJEVjRbtmdcbeApHAVFVYGT4Lefrp45Ca2QK5923](/QmSPEmnJEVjRbtmdcbeApHAVFVYGT4Lefrp45Ca2QK5923) there are a lot of concerns!
 
 ## Concern 4:  Commented out code
 Code in the "Router" contract are commented out and done using the `/*` method instead of `\\` which is technically correct, but easy to miss unless put into an IDE such as VS Code.
