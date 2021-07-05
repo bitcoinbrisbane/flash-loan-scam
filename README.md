@@ -22,4 +22,5 @@ In the IPFS file LN 128 references the contract `0x9c7770E88dd4c4F972283E97B4FeB
 The YouTuber only has a few followings and only 3 videos at time of writing on "Flash Loans"
 
 ## Concern 4: Fake comments
-There are profiles such as "Marcus Canton" with no profile image commenting "Amazing I did it twice and earned over 5BNB. Great JOB!!".  Clicking "his" profile shows they only registered 
+There are profiles such as "Marcus Canton" with no profile image commenting "Amazing I did it twice and earned over 5BNB. Great JOB!!".  Clicking "his" profile shows they only registered a few days ago at time of writing.
+
