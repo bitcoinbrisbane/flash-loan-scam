@@ -81,11 +81,11 @@ In the method "flashloan", LN44 sweeps the entire amount of the Ethereum in the 
 
 
 # Socials 
-## Concern 3: Social profile
+## Concern 6: Social profile
 The YouTuber only has a few followings and only 3 videos at time of writing on "Flash Loans"
 ![Screenshot from 2021-07-05 10-55-32](https://user-images.githubusercontent.com/8411406/124405464-11db3e00-dd82-11eb-8346-de1eac423640.png)
 
-## Concern 4: Fake comments
+## Concern 6: Fake comments
 There are profiles such as "Marcus Canton" with no profile image commenting "Amazing I did it twice and earned over 5BNB. Great JOB!!".  Clicking "his" profile shows they only registered a few days ago at time of writing.
 
 ![Screenshot from 2021-07-05 11-07-01](https://user-images.githubusercontent.com/8411406/124405446-038d2200-dd82-11eb-80d0-dad085fabfba.png)
