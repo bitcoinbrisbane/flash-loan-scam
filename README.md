@@ -24,3 +24,4 @@ The YouTuber only has a few followings and only 3 videos at time of writing on "
 ## Concern 4: Fake comments
 There are profiles such as "Marcus Canton" with no profile image commenting "Amazing I did it twice and earned over 5BNB. Great JOB!!".  Clicking "his" profile shows they only registered a few days ago at time of writing.
 
+![Fake](/Screenshot from 2021-07-05 11-06-35.png)
