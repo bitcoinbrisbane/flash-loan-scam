@@ -15,13 +15,15 @@ From the GhostBin code the contract imports a contract from IPFS at QmSPEmnJEVjR
 In the IPFS file LN 128 references the contract `0x9c7770E88dd4c4F972283E97B4FeBD2991e0E05B`.  This does not exist on the Ethereum blockchain.   https://etherscan.io/address/0x9c7770E88dd4c4F972283E97B4FeBD2991e0E05B
 
 # Inspecting the code
-
+After downloading the IPFS file QmSPEmnJEVjRbtmdcbeApHAVFVYGT4Lefrp45Ca2QK5923 there are a lot of concerns.
 
 # Socials 
 ## Concern 3: Social profile
 The YouTuber only has a few followings and only 3 videos at time of writing on "Flash Loans"
+![Screenshot from 2021-07-05 10-55-32](https://user-images.githubusercontent.com/8411406/124405464-11db3e00-dd82-11eb-8346-de1eac423640.png)
 
 ## Concern 4: Fake comments
 There are profiles such as "Marcus Canton" with no profile image commenting "Amazing I did it twice and earned over 5BNB. Great JOB!!".  Clicking "his" profile shows they only registered a few days ago at time of writing.
 
-![Fake](/Screenshot from 2021-07-05 11-06-35.png)
+![Screenshot from 2021-07-05 11-07-01](https://user-images.githubusercontent.com/8411406/124405446-038d2200-dd82-11eb-80d0-dad085fabfba.png)
+
