@@ -17,6 +17,29 @@ In the IPFS file LN 128 references the contract `0x9c7770E88dd4c4F972283E97B4FeB
 # Inspecting the code
 After downloading the IPFS file QmSPEmnJEVjRbtmdcbeApHAVFVYGT4Lefrp45Ca2QK5923 there are a lot of concerns.
 
+## Concern 4:  Commented out code
+Code in the "Router" contract are commented out and done using the `/*` method instead of `\\` which is technically correct, but easy to miss unless put into an IDE such as VS Code.
+
+```
+    function lendingPoolFlashloan(uint256 _asset) public pure {
+        uint256 data = _asset; 
+        require(data != 0, "Data can't be 0.");/*
+        uint amount = 1 BNB;
+
+        ILendingPool lendingPool = ILendingPool(addressesProvider.getLendingPool());
+        lendingPool.flashLoan(address(this), _asset, amount, data);*/
+    }
+```
+
+Lots of methods are simply commented out or do nothing, such as 
+
+```
+    //5. Note that the transaction sender gains 3.29 BNB from the arbitrage, this particular transaction can be repeated as price changes all the time.
+    function completeTransation(uint256 balanceAmount) public pure {
+        require(balanceAmount >= 0, "Amount should be greater than 0!");
+    }
+```
+
 # Socials 
 ## Concern 3: Social profile
 The YouTuber only has a few followings and only 3 videos at time of writing on "Flash Loans"
