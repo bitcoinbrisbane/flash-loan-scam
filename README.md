@@ -5,7 +5,7 @@ Analysis of "flash loan attack" from YouTuber https://www.youtube.com/watch?v=Hy
 
 The YouTuber "Crypto Academy" https://www.youtube.com/channel/UCgiMBbCjQnaf2q3_cs06KOw  posted a video on how to orchestrate a FlashLoan attack.  I decided to verify the claims of this video by inspecting the code. This is my analysis of the video with a review of the code.
 
-## v 1:  Code on GhostBin
+## Concern 1:  Code on GhostBin
 The attack code is on GhostBin, an anonymous file sharing platform not GitHub or GitHub gist. 
 
 ## Concern 2:  Code on IPFS
